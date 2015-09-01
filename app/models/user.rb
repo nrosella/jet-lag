@@ -36,10 +36,10 @@ class User < ActiveRecord::Base
   	timeline_search_results = []
   	seconds = hours * 60 * 60
     time = Time.now - seconds
-    twitter.home_timeline.each do |tweet|
+    twitter.home_timeline(options={count: 5}).each do |tweet|
     	# binding.pry
       if tweet.created_at > time
-        timeline_search_results << [tweet.user.name, tweet.text]
+        timeline_search_results << [tweet.user.name, tweet.text, tweet.created_at]
       end
     end
     timeline_search_results
