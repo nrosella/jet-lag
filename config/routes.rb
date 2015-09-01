@@ -1,4 +1,15 @@
 Rails.application.routes.draw do
+  root to: 'visitors#index'
+  resources :users
+  resources :tweets
+
+  get '/auth/:provider/callback' => 'sessions#create'
+  get '/signin' => 'sessions#new', as: :signin             # Adding :as => :signin to the route gives us a signin_path helper to use in our views
+  get '/signout' => 'sessions#destroy', as: :signout
+  get '/auth/failure' => 'sessions#failure'
+
+  post '/users/:id/go_back', to: 'users#go_back'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
