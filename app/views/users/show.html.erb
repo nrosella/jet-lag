@@ -4,16 +4,20 @@
 
 <p><%= link_to "New Tweet", new_tweet_path %></p>
 
+<div id="timeline-results">
 <% @timeline.each do |tweet| %>
 <p><%= tweet[0] %>: <%= tweet[1] %></p>
 <% end %>
+</div>
 
-
-<%= form_tag(user_path, method: "patch") do %>
+<div id="hour-form">
+<%= form_tag(user_path, method: "patch", remote: true) do %>
 	<%= label_tag(:hour, "Go back:") %>
-  <%= text_field_tag(:hour) %>
+  <%= number_field_tag(:hour, placeholder: "Number of Hours") %>
   <%= submit_tag("Time Travel") %>
 <% end %>
+</div>
+
 
 
 
