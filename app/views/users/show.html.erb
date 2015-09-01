@@ -5,9 +5,9 @@
 <p><%= link_to "New Tweet", new_tweet_path %></p>
 
 <div id="timeline-results">
-<% @timeline.each do |tweet| %>
-<p><%= tweet[0] %>: <%= tweet[1] %></p>
-<% end %>
+	<% @timeline.each do |tweet| %>
+		<p><%= tweet[0] %>: <%= tweet[1] %></p>
+	<% end %>
 </div>
 
 <div id="hour-form">
