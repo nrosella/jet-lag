@@ -18,8 +18,10 @@ class UsersController < ApplicationController
   	@user = User.find(params[:id])
   	@time = params[:hour].to_i
   	@reversed_timeline = @user.reverse_time(@time)
+  	@sorted = @reversed_timeline.collect.sort_by{|t| t[2]}
   	render :reversed_timeline
   end
 
 
 end
+
