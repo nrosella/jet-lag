@@ -27,7 +27,7 @@ class User < ActiveRecord::Base
   def display_timeline
   	timeline_search_results = []
   	twitter.home_timeline(options={count: 5}).each do |tweet|
-  		timeline_search_results << [tweet.user.name, tweet.text]
+  		timeline_search_results << [tweet.user.name, tweet.text, tweet.created_at]
   	end
   	timeline_search_results
   end
