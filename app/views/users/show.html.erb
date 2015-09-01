@@ -2,13 +2,18 @@
 
 <h3>Hello, <%= @user.name %> </h3>
 
-<p><%= link_to "New Tweet", new_tweet_path %></p>
+<div>
+	<%= render partial: 'tweets/new' %>
+</div>
 
 <div id="timeline-results">
 	<% @timeline.each do |tweet| %>
-		<p><%= tweet[0] %>: <%= tweet[1] %></p>
-	<% end %>
+    <h3><%= tweet[0] %></h3>
+    <p><%= tweet[1] %></p>
+    <p><%= tweet[2].strftime("%w %b %y @ %H:%M") %></p>
+  <%end%>
 </div>
+
 
 <div id="hour-form">
 <%= form_tag(user_path, method: "patch", remote: true) do %>

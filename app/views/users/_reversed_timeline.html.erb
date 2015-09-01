@@ -1,16 +1,7 @@
-<table class="table table-hover sortable" >
-	<thead>
-  	<tr>
-    	<th></th>
-      <th>Sort by time</th>
-    </tr>
-  </thead>
-  <tbody>
-		<% @sorted.each do |tweet| %>
-  		<tr>
-    		<td><%= tweet[0] %>: <%= tweet[1] %></td>
-  		</tr>
-  	<%end%>
-	</tbody>
-</table>
-    
+<div>
+  <% @sorted.each do |tweet| %>
+    <h3><%= tweet[0] %></h3>
+    <p><%= tweet[1] %></p>
+    <p><%= tweet[2].strftime("%w %b %y @ %H:%M") %></p>
+  <%end%>
+</div>
