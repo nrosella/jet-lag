@@ -2,15 +2,19 @@
 
 <h3>Hello, <%= @user.name %> </h3>
 
+<% @user.print_name.each do |name| %>
+<p><%= name %></p>
+<% end %>
+
 <div>
 	<%= render partial: 'tweets/new' %>
 </div>
 
 <div id="timeline-results">
 	<% @timeline.each do |tweet| %>
-    <h3><%= tweet[0] %></h3>
-    <p><%= tweet[1] %></p>
-    <p><%= tweet[2].strftime("%w %b %y @ %H:%M") %></p>
+    <h3><%= tweet.first %></h3>
+    <p><%= auto_link(tweet.second).html_safe %></p> 
+    <p><%= tweet.third.strftime("%w %b %y @ %H:%M") %></p>
   <%end%>
 </div>
 
@@ -23,6 +27,4 @@
 <% end %>
 </div>
 
-
-
-
+<%= auto_link("link @user, please #request") %>

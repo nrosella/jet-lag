@@ -26,24 +26,28 @@ class User < ActiveRecord::Base
 
   def display_timeline
   	timeline_search_results = []
-  	twitter.home_timeline(options={count: 5}).each do |tweet|
+  	twitter.home_timeline(options={count: 5}).each do |tweet|  		
   		timeline_search_results << [tweet.user.name, tweet.text, tweet.created_at]
   	end
   	timeline_search_results
   end
 
-  def reverse_time(hours)
-  	timeline_search_results = []
+  def calculated_time(hours)
   	seconds = hours * 60 * 60
     time = Time.now - seconds
+    time
+  end
+
+  def reverse_time
+  	timeline_search_results = []
     twitter.home_timeline(options={count: 5}).each do |tweet|
-    	# binding.pry
-      if tweet.created_at > time
+      if tweet.created_at > calculated_time
         timeline_search_results << [tweet.user.name, tweet.text, tweet.created_at]
       end
     end
     timeline_search_results
   end
+
 
 end
 
