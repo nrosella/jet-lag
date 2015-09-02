@@ -1,39 +1,31 @@
-# Jet Lag
+# Jet Lag (In-progress)
 
 ## Description
 
-Add a short description of your app.
+After travelling from the UK to NYC this summer to study at The Flatiron School I encountered a problem with my Twitter feed on both the web and iOS app. NYC is 5 hours behind London and the majority of people that I follow on Twitter are UK-based. This means that when I get to the evening and I have a chance to check Twitter I have to scroll back through my feed for ages to get to the start of that day's events.
 
-## Screenshots
-
-Add some spiffy screenshots of your app here.
-
-## Background
-
-Why did you want to make this app? What was your development process
-like?
-
-## Features
-
-Bullet point some of the key features of your app here.
-
-## Usage
-
-How do users use your app?
+Jet Lag is a Rails app that aims to solve this problem. You simply log in via Twitter and then specify a certain number of hours that you'd like to go back. Et voilà. No mad scrolling necessary.
 
 ## Development/Contribution
 
-Explain how people can contribute to your app. How should they write tests?
-Any things in particular you'd like to see in pull requests?
+Whilst the MVP of this app is still under development I'd appreciate people holding off on the pull requests for now ;)
 
 ## Future
 
-What features are you currently working on? Only mention things that you
-actually are implementing. No pie-in-the-sky-never-gonna-happen stuff.
+Currently building the MVP but would like to integrate the following:
+
+-- Add images to tweet body
+-- Sortable results using jQuery
+-- Functionality to be able to set timezone or have it deteced automatically
 
 ## Author
 
-Link to your blog, twitter, etc!
+You can find me at the following locations:
+
+www.ninorosella.uk
+
+Instagram & Twitter
+@ninorosella
 
 ## License
 
