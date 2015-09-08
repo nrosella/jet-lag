@@ -24,8 +24,8 @@ You can find me at the following locations:
 
 www.ninorosella.uk
 
-Instagram & Twitter
-@ninorosella
+www.twitter.com/ninorosella
+www.instagram.com/ninorosella
 
 ## License
 
