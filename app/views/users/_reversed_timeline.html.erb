@@ -1,7 +1,8 @@
 <div>
   <% @sorted.each do |tweet| %>
-    <h3><%= tweet[0] %></h3>
-    <p><%= tweet[1] %></p>
-    <p><%= tweet[2].strftime("%w %b %y @ %H:%M") %></p>
+  	<img src="<%= tweet[0] %>">
+    <h3><%= tweet[1] %></h3>
+    <p><%= tweet[2] %></p>
+    <p><%= tweet[3].strftime("%w %b %y @ %H:%M") %></p>
   <%end%>
 </div>

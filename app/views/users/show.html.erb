@@ -1,10 +1,6 @@
-<img src="<%= @user.twitter.user.attrs[:profile_image_url].gsub("_normal", "") %>">
+<img src="<%= @user.profile_picture %>">
 
 <h3>Hello, <%= @user.name %> </h3>
-
-<% @user.print_name.each do |name| %>
-<p><%= name %></p>
-<% end %>
 
 <div>
 	<%= render partial: 'tweets/new' %>
@@ -12,19 +8,18 @@
 
 <div id="timeline-results">
 	<% @timeline.each do |tweet| %>
-    <h3><%= tweet.first %></h3>
-    <p><%= auto_link(tweet.second).html_safe %></p> 
-    <p><%= tweet.third.strftime("%w %b %y @ %H:%M") %></p>
+		<img src="<%= tweet.first %>">
+    <h3><%= tweet.second %></h3>
+    <p><%= auto_link(tweet.third).html_safe %></p> 
+    <p><%= tweet.fourth.strftime("%w %b %y @ %H:%M") %></p>
   <%end%>
 </div>
 
-
 <div id="hour-form">
-<%= form_tag(user_path, method: "patch", remote: true) do %>
-	<%= label_tag(:hour, "Go back:") %>
-  <%= number_field_tag(:hour, placeholder: "Number of Hours") %>
-  <%= submit_tag("Time Travel") %>
-<% end %>
+	<%= form_tag(user_path, method: "patch", remote: true) do %>
+		<%= label_tag(:hour, "Go back:") %>
+	  <%= number_field_tag(:hour, placeholder: "Number of Hours") %>
+	  <%= submit_tag("Time Travel") %>
+	<% end %>
 </div>
 
-<%= auto_link("link @user, please #request") %>

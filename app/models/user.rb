@@ -1,6 +1,5 @@
 class User < ActiveRecord::Base
 	
-
 	def self.create_with_omniauth(auth)
 		# binding.pry
     create! do |user|
@@ -26,28 +25,28 @@ class User < ActiveRecord::Base
 
   def display_timeline
   	timeline_search_results = []
-  	twitter.home_timeline(options={count: 5}).each do |tweet|  		
-  		timeline_search_results << [tweet.user.name, tweet.text, tweet.created_at]
+  	twitter.home_timeline(options={count: 5}).each do |tweet|
+      
+  		timeline_search_results << [tweet.attrs[:user][:profile_image_url], tweet.user.name, tweet.text, tweet.created_at]
   	end
   	timeline_search_results
   end
 
-  def calculated_time(hours)
-  	seconds = hours * 60 * 60
-    time = Time.now - seconds
-    time
-  end
-
-  def reverse_time
+  def reverse_time(hours)
   	timeline_search_results = []
-    twitter.home_timeline(options={count: 5}).each do |tweet|
-      if tweet.created_at > calculated_time
-        timeline_search_results << [tweet.user.name, tweet.text, tweet.created_at]
+    seconds = hours * 60 * 60
+    time = Time.now - seconds
+    twitter.home_timeline.each do |tweet|
+      if tweet.created_at > time
+        timeline_search_results << [tweet.attrs[:user][:profile_image_url], tweet.user.name, tweet.text, tweet.created_at]
       end
     end
     timeline_search_results
   end
 
+  def profile_picture
+    twitter.user.attrs[:profile_image_url].gsub("_normal", "")
+  end
 
 end
 

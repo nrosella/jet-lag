@@ -15,6 +15,7 @@ class UsersController < ApplicationController
   end
 
   def update
+    # binding.pry
   	@user = User.find(params[:id])
   	@time = params[:hour].to_i
   	@reversed_timeline = @user.reverse_time(@time)
